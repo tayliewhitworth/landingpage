@@ -1,16 +1,25 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar';
-import Home from './components/Home/Home'
+import { useNavigate, Route, Routes } from 'react-router-dom';
+import NavBar from './components/NavBar/NavBar';
+import Login from './components/Login'
+import Home from './container/Home';
+import About from './components/About'
+import Projects from './components/Projects'
+import CreateAccount from './components/CreateAccount';
+import PortfolioPage from './components/PortfolioPage';
+
 
 function App() {
   return (
     <>
-      {/* The Navbar component stays out of the Routes because it is on every page */}
-      <Navbar />
+      <NavBar />
       <Routes>
-        {/* This is where you will put all the componenets to navigate to */}
+        <Route path='/login' element={<Login />} />
         <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/projects' element={<Projects />} />
+        <Route path='/portfolios' element={<PortfolioPage />} />
+        <Route path='/create' element={<CreateAccount />} />
       </Routes>
     </>
   );
